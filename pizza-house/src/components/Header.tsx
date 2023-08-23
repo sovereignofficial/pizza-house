@@ -1,6 +1,10 @@
 import { Container, Flex, List, ListItem, Box } from "@chakra-ui/react"
+import { Link, useLocation } from "react-router-dom"
+import { routes } from "../utils/pizzaHouse.config";
 
 export const Header = () => {
+    const location = useLocation();
+
     return (
         <Container
             bg='app.dark'
@@ -14,9 +18,18 @@ export const Header = () => {
                             bgPosition="center"
                             bgRepeat="no-repeat" />
                     </ListItem>
-                    <ListItem>Menu</ListItem>
-                    <ListItem>Cart</ListItem>
-                    <ListItem>Orders</ListItem>
+                    {routes.map((route, index) => (
+                        <ListItem key={index}>
+                            <Link style={{
+                                color:`${route.path === location.pathname 
+                                ? 'orange'
+                                : 'white' }`
+                            }} to={route.path}>
+                                {route.route}
+                            </Link>
+                        </ListItem>
+                    ))}
+
                 </Flex>
             </List>
         </Container >

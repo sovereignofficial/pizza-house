@@ -1,14 +1,14 @@
-import { Brand } from '../components/landing/Brand'
 import { Features } from '../components/landing/Features'
 import { TopOrders } from '../components/landing/TopOrders'
-import { Location } from '../components/landing/Location'
+import { LandingBox } from '../components/landing/LandingBox'
+import { landingSections } from '../utils/pizzaHouse.config'
 
 export const Home = () => {
     return (
         <>
-            <Brand />
+            <LandingBox {...landingSections.section1}/>
             <Features />
-            <Location />
+            <LandingBox {...landingSections.section2}/>
             <TopOrders />
         </>
     )

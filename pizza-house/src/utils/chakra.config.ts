@@ -1,4 +1,5 @@
 import { extendTheme } from "@chakra-ui/react"
+import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
 
 const colors = {
     brand:{
@@ -25,7 +26,22 @@ const styles = {
     }
 }
 
+const bgColor = defineStyle({
+        bgColor:'app.hot',
+        color:'white',
+        "&:hover":{
+            bgColor:'brand.300'
+        }
+})
+export const buttonTheme = defineStyleConfig({
+  variants: {solid:bgColor },
+})
+
+
 export const theme = extendTheme({
     colors,
-    styles
+    styles,
+    components:{
+        Button:buttonTheme
+    }
 })

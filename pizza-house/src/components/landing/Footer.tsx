@@ -1,6 +1,10 @@
 import { Box, Container, Grid, GridItem, Heading, List, ListItem, Text } from "@chakra-ui/react"
+import { routes } from "../../utils/pizzaHouse.config"
+import { Link, useLocation } from "react-router-dom"
 
 export const Footer = () => {
+    const location = useLocation();
+    
     return (
         <Container bgColor={'app.dark'} h="md" minW='full'>
             <Box m="auto" display='flex' alignItems='center' boxSize='200px' bgImage='logo.png'
@@ -16,10 +20,17 @@ export const Footer = () => {
                 </GridItem>
                 <GridItem colSpan={2} w="full">
                     <List textAlign={'center'} spacing={2}>
-                        <ListItem>Home</ListItem>
-                        <ListItem>Menu</ListItem>
-                        <ListItem>Cart</ListItem>
-                        <ListItem>Orders</ListItem>
+                    {routes.map((route, index) => (
+                        <ListItem key={index}>
+                            <Link style={{
+                                color:`${route.path === location.pathname 
+                                ? 'orange'
+                                : 'white' }`
+                            }} to={route.path}>
+                                {route.route}
+                            </Link>
+                        </ListItem>
+                    ))}
                     </List>
                 </GridItem>
                 <GridItem colSpan={2} w="full">
