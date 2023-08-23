@@ -22,7 +22,8 @@
 1. Landing and Home Page -> /
 2. Menu -> /menu
 3. Cart -> /cart
-4. Order -> /order/new
+4. Orders -> /order
+ * Create Order -> order/new
  * User Info -> /order/user
  * Control Order -> /order/:id
 
