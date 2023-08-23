@@ -13,7 +13,7 @@
 
    ### After The BETA
 
-    * User's will be able to sign up and get authenticated.
+    * Users will be able to sign up and get authenticated.
     * "" will be able to use online payment systems such as Google Pay etc.
     * "" will be able to get discount by scanning QR codes or special loyalty algorithm.
 
