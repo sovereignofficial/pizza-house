@@ -10,7 +10,7 @@ export const AppLayout = () => {
             padding={0}
         >
             <Header />
-            <main id='sikis'>
+            <main >
                 <Outlet />
             </main>
         </Container>
