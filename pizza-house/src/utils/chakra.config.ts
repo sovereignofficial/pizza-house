@@ -33,7 +33,8 @@ const bgColor = defineStyle({
             bgColor:'brand.300'
         }
 })
-export const buttonTheme = defineStyleConfig({
+
+const buttonTheme = defineStyleConfig({
   variants: {solid:bgColor },
 })
 
@@ -42,6 +43,6 @@ export const theme = extendTheme({
     colors,
     styles,
     components:{
-        Button:buttonTheme
+        Button:buttonTheme,
     }
 })

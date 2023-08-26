@@ -1,10 +1,10 @@
 import { Box, Container, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
 import { appFeatures } from '../../utils/pizzaHouse.config'
-
 export const Features = () => {
     return (
-        <Container mb={20} h="md" minW='full'>
-            <Grid minW='full' h='full' templateColumns='repeat(6, 1fr)' placeItems='center' gap={3}>
+        <Container mb={28} h="md" minW='full'>
+            <Grid minW='full' h='full'    templateColumns={{ base: "1fr", lg: "repeat(6, 1fr)" }}
+  templateRows={{ base: "1fr 1fr", md: "1fr" }} placeItems='center' gap={3}>
                 {appFeatures.map((feature, index) => (
                     <GridItem key={index} colSpan={2} w="full">
                         <Box

@@ -1,6 +1,10 @@
+import React from "react"
+import { CartLayout } from "../components/cart/CartLayout"
 
 export const Cart = () => {
   return (
-    <div>Cart</div>
+    <React.Fragment>
+      <CartLayout/>
+    </React.Fragment>
   )
 }

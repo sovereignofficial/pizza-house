@@ -1,0 +1,14 @@
+/* This will change the scrollbar for the entire page */
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}

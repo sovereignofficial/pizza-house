@@ -26,13 +26,13 @@ export const LandingBox = ({title,subtitle,bgImage,titleHighlight}:LandingSectio
         justifyContent="center"
         zIndex={1}
       >
-        <Box textAlign={'center'}>
+        <Box textAlign={'center'} p={2}>
           <Heading size={"4xl"}>
             <Highlight styles={{color:"app.hot"}}  query={titleHighlight}>
               {title}
             </Highlight>
           </Heading>
-          <Text color="white" fontSize="xl" mt={4}>
+          <Text color="white" fontSize={{base:'md',md:"xl"}} mt={4}>
             {subtitle}
           </Text>
         </Box>

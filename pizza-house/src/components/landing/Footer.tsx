@@ -6,19 +6,19 @@ export const Footer = () => {
     const location = useLocation();
     
     return (
-        <Container bgColor={'app.dark'} h="md" minW='full'>
+        <Container bgColor={'app.dark'} h={{base:'full',md:'md'}} minW='full'>
             <Box m="auto" display='flex' alignItems='center' boxSize='200px' bgImage='logo.png'
                 bgSize="cover"
                 bgPosition="center"
                 bgRepeat="no-repeat" />
-            <Grid minW='full' templateColumns='repeat(6, 1fr)' placeItems='center' gap={3}>
-                <GridItem colSpan={2} w="full">
+            <Grid minW='full' templateColumns={{base:'1fr',md:'repeat(6, 1fr)'}} placeItems='center' gap={3}>
+                <GridItem colSpan={3} w="full">
                     <Box p={4}>
                         <Heading mb={2} size='md'>Pizza House Co.</Heading>
                         <Text color='gray.300'>Enjoy the best pizzas in town at Pizza House Co. Our passion is crafting delicious pizzas that delight your taste buds. With fresh ingredients and a variety of flavors, we're dedicated to providing an exceptional dining experience. Join us for a slice of happiness!</Text>
                     </Box>
                 </GridItem>
-                <GridItem colSpan={2} w="full">
+                <GridItem display={'flex'} justifyContent={'space-evenly'} colSpan={3} w="full">
                     <List textAlign={'center'} spacing={2}>
                     {routes.map((route, index) => (
                         <ListItem key={index}>
@@ -32,8 +32,6 @@ export const Footer = () => {
                         </ListItem>
                     ))}
                     </List>
-                </GridItem>
-                <GridItem colSpan={2} w="full">
                     <List textAlign={'center'} spacing={2}>
                         <ListItem>Facebook</ListItem>
                         <ListItem>Instagram</ListItem>
@@ -41,8 +39,9 @@ export const Footer = () => {
                         <ListItem>LinkedIn</ListItem>
                     </List>
                 </GridItem>
+
             </Grid>
-            <Text pos={'absolute'} bottom={2} left="40%" color='gray.400'>Developed by Egemen Akdan aka. Sovereign</Text>
+            <Text textAlign={'center'} mt={20} color='gray.400'>Developed by Egemen Akdan aka. Sovereign</Text>
         </Container>
     )
 }
