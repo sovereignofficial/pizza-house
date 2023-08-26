@@ -191,7 +191,10 @@ const ordersData:OrderType[] = [
 ]
 
 const routes = [
-
+    {
+        route:'Home',
+        path:'/'
+    },
     {
         route:'Menu',
         path:'/menu'
