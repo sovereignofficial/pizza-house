@@ -16,6 +16,14 @@ export type OrderType = {
     paid: number
 }
 
+export type MenuItem = {
+    id:number,
+    name:string,
+    unitPrice:number,
+    imageUrl:string,
+    ingredients:string[],
+    soldOut:boolean
+}
 
 //redux
 export type RootState = ReturnType<typeof store.getState>;
