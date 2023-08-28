@@ -29,15 +29,17 @@
 
 ## State Management
 
-1. Menu -> Remote State, fetched from API
-2. Cart -> Global UI, no need for API, just stored in app
-3. Order -> Global Remote, fetched and submitted to API
+1. Home -> Fetch data once at the AppLayout and use it as global state in redux. 4 Menu item will be shown at UI.
+2. Menu -> Global States, search filters and menu
+2. Cart -> Global States, add & delete item, increment & decrement quantity
+3. Order -> Global and Remote States, create order, inspect order, check order status.
 
 
 ## Technology Stack
 
 - UI: Chakra UI,
-- State Management: Redux Toolkit
+- State Management: Redux Toolkit,
+- Data Fetching and Caching: RTK Query,
 - Routing: React Router,
 - Bundler: Vite,
 - Framework: React

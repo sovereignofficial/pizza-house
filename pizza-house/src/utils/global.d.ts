@@ -4,7 +4,16 @@ export type AppFeature = { title: string, description: string };
 
 export type LandingSection = { title: string, subtitle: string, bgImage: string, titleHighlight: string }
 
-export type CartItemType = { name: string, itemImg: string, price: string, quantity: number, description: string }
+export type MenuItem = {
+    id: number,
+    name: string,
+    unitPrice: number,
+    imageUrl: string,
+    ingredients: string[],
+    soldOut: boolean
+}
+
+export type CartItemType = MenuItem & { quantity: number }
 
 export type OrderType = {
     client: string
@@ -13,16 +22,8 @@ export type OrderType = {
     date: string,
     status: string,
     items: CartItemType[]
-    paid: number
-}
-
-export type MenuItem = {
-    id:number,
-    name:string,
-    unitPrice:number,
-    imageUrl:string,
-    ingredients:string[],
-    soldOut:boolean
+    paid: number,
+    estimatedTime:Date,
 }
 
 //redux

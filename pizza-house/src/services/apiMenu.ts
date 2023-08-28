@@ -1,6 +1,6 @@
 import { MenuItem } from "../utils/global";
 
-const API_URL = 'https://react-fast-pizza-apia.onrender.com/api';
+const API_URL = 'https://react-fast-pizza-api.onrender.com/api';
 
 export async function getMenu():Promise<MenuItem[]> {
   const res = await fetch(`${API_URL}/menu`);
