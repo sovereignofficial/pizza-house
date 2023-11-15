@@ -1,4 +1,4 @@
-import { MenuItem } from "../utils/global";
+import { MenuItem } from "../../utils/global";
 
 const API_URL = 'https://react-fast-pizza-api.onrender.com/api';
 

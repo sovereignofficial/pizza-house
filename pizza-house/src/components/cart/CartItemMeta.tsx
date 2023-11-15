@@ -2,7 +2,7 @@ import { Box, Image, Stack,Text } from '@chakra-ui/react'
 import { CartItemType } from '../../utils/global'
 
 
-export const CartItemMeta = ({ name, itemImg, description }: CartItemType) => {
+export const CartItemMeta = ({ name, imageUrl, ingredients }: CartItemType) => {
     return (
         <Stack direction="row" spacing="5" width="full">
             <Image
@@ -10,7 +10,7 @@ export const CartItemMeta = ({ name, itemImg, description }: CartItemType) => {
                 width="120px"
                 height="120px"
                 fit="cover"
-                src={itemImg}
+                src={imageUrl}
                 alt={name}
                 draggable="false"
                 loading="lazy"
@@ -19,7 +19,7 @@ export const CartItemMeta = ({ name, itemImg, description }: CartItemType) => {
                 <Stack spacing="0.5">
                     <Text fontWeight="medium">{name}</Text>
                     <Text color={'gray.400'} fontSize="sm">
-                        {description}
+                        {ingredients.join(" ")}
                     </Text>
                 </Stack>
             </Box>

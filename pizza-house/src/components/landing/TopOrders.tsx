@@ -1,13 +1,13 @@
 import { Container, Heading, Box } from "@chakra-ui/react"
 import { MenuView } from "../menu/MenuView"
-import { useLoaderData } from "react-router-dom";
-import { MenuItem } from "../../utils/global";
+import { useReduxSelector } from "../../hooks/reduxHooks"
 
 
 
 export const TopOrders = () => {
-    const menu = useLoaderData() as MenuItem[] | undefined;
-    console.log(menu)
+
+    const {menu} = useReduxSelector(state=>state.menuReducer);
+    
     return (
         <Container p={10} mb={20} minW='full'>
             <Box p={3} m='auto' textAlign='center' w={{base:'300px',md:"400px"}} my={10} borderBottom={'5px solid'} borderColor={'app.hot'} bgColor="brand.900">

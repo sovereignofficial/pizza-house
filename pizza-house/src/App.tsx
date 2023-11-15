@@ -7,9 +7,7 @@ import { CheckoutLayout } from "./components/orders/checkout/CheckoutLayout"
 import { OrderDetails } from "./components/orders/id/OrderDetails"
 import { OrderLayout } from "./components/orders/OrderLayout"
 import { AppLayout } from "./pages/AppLayout"
-import { menuLoader } from "./services/menuLoader"
 import ErrorPage from "./pages/Error"
-
 
 const router = createBrowserRouter([
   {
@@ -19,12 +17,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
-        loader:menuLoader
       },
       {
         path: '/menu',
         element: <Menu />,
-        loader:menuLoader
       },
       {
         path: '/cart',
@@ -40,7 +36,7 @@ const router = createBrowserRouter([
           },
           {
             path: 'new',
-            element: <CheckoutLayout />
+            element: <CheckoutLayout />,
           },
           {
             path: ":id",

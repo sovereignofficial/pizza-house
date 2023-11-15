@@ -1,9 +1,27 @@
 import { Container, Flex, List, ListItem, Box, Text, Stack } from "@chakra-ui/react"
 import { Link, useLocation } from "react-router-dom"
 import { routes } from "../utils/pizzaHouse.config";
+import { useReduxSelector } from "../hooks/reduxHooks";
+import { useEffect } from "react";
 
 export const Header = () => {
     const location = useLocation();
+    const {cart} = useReduxSelector(state=>state.cartReducer)
+    const { orders } = useReduxSelector(state=>state.orderReducer)
+
+    useEffect(()=>{
+       const cartRoute = routes.find(route=>route.route === "Cart")
+       if(cartRoute){
+        cartRoute.itemsAmount = cart.length
+       }
+    },[cart])
+
+    useEffect(()=>{
+        const orderRoute = routes.find(route=>route.route === "Orders");
+        if(orderRoute){
+            orderRoute.itemsAmount = orders.length;
+        }
+    },[orders])
 
     return (
         <Container

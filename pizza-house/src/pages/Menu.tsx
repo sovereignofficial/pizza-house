@@ -1,10 +1,10 @@
 import React from "react"
 import { MenuLayout } from "../components/menu/MenuLayout"
 import { MenuView } from "../components/menu/MenuView"
-import { useLoaderData } from "react-router-dom"
-import { MenuItem } from "../utils/global"
+import { useReduxSelector } from "../hooks/reduxHooks";
 export const Menu = () => {
-  const menu = useLoaderData() as MenuItem[] | undefined
+  const {menu} = useReduxSelector(state=>state.menuReducer);
+
   return (
     <React.Fragment>
       <MenuLayout>

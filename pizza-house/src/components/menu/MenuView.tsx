@@ -1,8 +1,10 @@
 import { Stack, Button, Flex, Grid, GridItem, Heading, Image, Text } from "@chakra-ui/react"
 import {  MenuItem } from "../../utils/global";
+import { useReduxDispatch } from "../../hooks/reduxHooks";
+import { addToCart } from "../../redux/slices/cartSlice";
 
 export const MenuView = ({menu}:{menu:MenuItem[]}) => {
-;
+    const dispatch = useReduxDispatch();
 
     return (
         <Grid w='full' templateColumns={{ base: '1fr', lg: 'repeat(4, 1fr)' }}
@@ -26,8 +28,8 @@ export const MenuView = ({menu}:{menu:MenuItem[]}) => {
                         </Stack>
                         <Stack direction={'row'} align={'center'}>
                             <Heading fontSize={"md"}>${item.unitPrice}</Heading>
-                            <Button>Add to Cart</Button>
-                        </Stack>
+                            <Button onClick={()=>{dispatch(addToCart({...item,quantity:1}))}}>Add to Cart</Button>
+                        </Stack>    
                     </Flex>
                 </GridItem>
             ))}

@@ -15,6 +15,13 @@ export type MenuItem = {
 
 export type CartItemType = MenuItem & { quantity: number }
 
+export type CartSummary = {
+    items:CartItemType[],
+    cartPrice:number,
+    totalPrice:number,
+    discount:number,
+}
+
 export type OrderType = {
     client: string
     phone: string,

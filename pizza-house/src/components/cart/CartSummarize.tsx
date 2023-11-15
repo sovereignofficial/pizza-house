@@ -1,9 +1,13 @@
 import { Button, Heading, Stack, Text } from "@chakra-ui/react"
-import { cartData } from "../../utils/pizzaHouse.config"
 import { useNavigate } from "react-router-dom"
+import { CartItemType, CartSummary } from "../../utils/global"
+import { useReduxDispatch } from "../../hooks/reduxHooks"
+import { setItemsFromCart } from "../../redux/slices/orderSlice"
 
-export const CartSummarize = () => {
-     const navigation = useNavigate()
+export const CartSummarize = ({cart, cartSummary }: {cart:CartItemType[], cartSummary: CartSummary }) => {
+    const navigation = useNavigate();
+    const dispatch = useReduxDispatch();
+
     return (
         <Stack
             border={'1px solid'}
@@ -17,21 +21,21 @@ export const CartSummarize = () => {
             <Heading size={'md'}>Order Summary</Heading>
             <Stack spacing="10" direction={'row'} justify={'space-between'} align={'center'} >
                 <Heading fontWeight={'medium'} color={'gray.300'} fontSize={'sm'}>Subtotal</Heading>
-                <Heading fontSize={'sm'}>${cartData.reduce((acc, curr) => {
-                    return acc + (parseFloat(curr.price.split('$')[1]) * curr.quantity)
-                }, 0)}</Heading>
+                <Heading fontSize={'sm'}>${cartSummary.cartPrice}</Heading>
             </Stack>
             <Stack spacing="10" direction={'row'} justify={'space-between'} align={'center'} >
                 <Heading fontWeight={'medium'} color={'gray.300'} fontSize={'sm'}>Discount</Heading>
-                <Text fontSize={'sm'} color={'gray.400'} >No discount</Text>
+                <Text fontSize={'sm'} color={'gray.400'} >{cartSummary?.discount > 0 ? `${cartSummary.discount}` : "No discount"}</Text>
             </Stack>
             <Stack spacing="10" direction={'row'} justify={'space-between'} align={'center'}>
                 <Heading fontWeight={'bold'} color={'gray.300'} fontSize={'lg'}>Total</Heading>
-                <Heading fontSize={'lg'} >${cartData.reduce((acc, curr) => {
-                    return acc + (parseFloat(curr.price.split('$')[1]) * curr.quantity)
-                }, 0)}</Heading>
+                <Heading fontSize={'lg'} >${cartSummary.totalPrice}</Heading>
             </Stack>
-            <Button onClick={()=>navigation('/order/new')} w="80%" mx="auto" mt="5">Go to Checkout</Button>
+            <Button onClick={() => {
+                navigation('/order/new')
+                dispatch(setItemsFromCart({cart,totalPrice:cartSummary.totalPrice}))
+            }
+            } w="80%" mx="auto" mt="5">Go to Checkout</Button>
         </Stack>
     )
 }

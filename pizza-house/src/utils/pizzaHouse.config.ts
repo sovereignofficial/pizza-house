@@ -198,7 +198,7 @@ const routes = [
     {
         route:'Cart',
         path:'/cart',
-        itemsAmount:cartData.length,
+        itemsAmount:0,
     },
     {
         route:'Orders',
